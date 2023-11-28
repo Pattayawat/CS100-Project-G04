@@ -50,22 +50,24 @@
         margin: 0%;
         padding: 0%;
         background-color: #EFE9E4;
+        line-height: 100%;
     }
     .niname h1 {
         font-family: serif;
         color: #202020;
         text-align: center;
-        line-height: 50%;
+        line-height: 100%;
         font-size: 50px;
     }
     .niname p {
         color: #202020;
         text-align: center;
-        line-height: 20%;
         font-family: sans-serif;
         font-weight: bold;
+        font-size: 15px;
     }
     .contact {
+        margin-top: 2px;
         color: #202020;
         padding-left: 15%;
         font-family: sans-serif;
