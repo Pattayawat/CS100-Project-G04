@@ -1,6 +1,7 @@
 
     .header {
-        margin: 0 ;
+        width: 100%;
+        margin: 0px ;
         border: 1px solid  #EFE9E4;
         background-color:  #EFE9E4; 
     }
@@ -8,13 +9,14 @@
         color: #202020;
         text-align: center;
         font-family: sans-serif;
+        font-size: 50px;
     }
     .row{
         position: relative;
         width:100%
     }
     .menu {
-        margin-top: 10px;
+        margin-top: 2%;
     }
     .menu ul {
         list-style-type: none;
@@ -26,8 +28,8 @@
         text-decoration: none;
     }
     .menu li {
-        padding: 10px;
-        margin-bottom: 7px;
+        padding: 5%;
+        margin-bottom: 5%;
         text-align: center;
         background-color: #202020;
         color: #EFE9E4;
@@ -36,4 +38,37 @@
 
     .menu li:hover {
         background-color: #5e5343;
+    }
+
+    .img {
+        margin : 5%;
+        padding: 0%;
+        margin-left: 10%;
+
+    }
+    .niname {
+        margin: 0%;
+        padding: 0%;
+        background-color: #EFE9E4;
+    }
+    .niname h1 {
+        font-family: serif;
+        color: #202020;
+        text-align: center;
+        line-height: 50%;
+        font-size: 50px;
+    }
+    .niname p {
+        color: #202020;
+        text-align: center;
+        line-height: 20%;
+        font-family: sans-serif;
+        font-weight: bold;
+    }
+    .contact {
+        color: #202020;
+        padding-left: 15%;
+        font-family: sans-serif;
+        line-height: 95%;
+        font-size: 75%;
     }
