@@ -13,7 +13,7 @@
     }
     .row{
         position: relative;
-        width:100%
+        width:100%;
     }
     .menu {
         margin-top: 2%;
@@ -43,7 +43,7 @@
     .img {
         margin : 5%;
         padding: 0%;
-        margin-left: 10%;
+        margin-left: 20%;
 
     }
     .niname {
@@ -64,7 +64,7 @@
         text-align: center;
         font-family: sans-serif;
         font-weight: bold;
-        font-size: 15px;
+        font-size: 10px;
     }
     .contact {
         margin-top: 5px;
