@@ -8,11 +8,54 @@
         <link rel="stylesheet" href="CSS/desktop.css">
         <link rel="stylesheet" href="CSS/tablet.css">
         <style>
-            body {
+            body 
+            {
                 margin: 0%;
                 padding: 0%;
                 box-sizing: border-box;
                 background-color: #EFE9E4;
+            }
+            #main-div
+            {
+                width:100%;
+            }
+            .clearfix::after
+            {
+                content:"";
+                display: block;
+                clear:both;
+            }
+            .contact
+            {
+                margin-bottom: 10px;
+            }
+            #Uni
+            {
+                font-family: monospace;
+                line-height: 2;
+            }
+            #name
+            {
+                line-height: 1;
+            }
+            #Profile
+            {
+                width:60%;
+                min-height: 400px;
+                background-color: lightgray;
+                float:left;
+                text-align: right;
+                text-align-last: right;
+                font-family: serif;
+
+            }
+
+            #Picture
+            {
+                width:35%;
+                min-height: 400px;
+                background-color: lightgray;
+                float:right;
             }
         </style>
     </head>
@@ -46,5 +89,17 @@
                 <li>Gmail : pattayawat.poo@dome.tu.ac.th</li>
             </ul>
         </div>
+    <div id="main-div" class="clearfix">
+        <div id="Profile">
+            <h1 id="name">Pathanin <br>
+            Prateeptihnthong</h1>
+            <p id="Uni">COMPUTER SCIENCE , THAMMASART UNIVERSITY
+            6609612087</p>
+        </div>
+        <div id="Picture">
+            Picture
+        </div>
+    </div>
 
 </body>
+</html>
