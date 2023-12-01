@@ -29,7 +29,7 @@
         color: #202020;
         text-align: center;
         font-family: sans-serif;
-    
+        font-size: 40px;
     }
     .row{
         position: absolute;
@@ -98,4 +98,62 @@
         margin-top: 30%;
         margin-left: 45%;
     }
+    #main-div
+    {
+        width:100%;
+        min-height: 400px;
+        margin-top: 500px;
     }
+    .clearfix::after
+    {
+        content:"";
+        display: block;
+        clear:both;
+    }
+    #Profile
+    {
+        width:60%;
+        min-height: 580px;
+        /*background-color: lightgray;*/
+        float:left;
+        text-align: right;
+        padding-top: 15px;
+        color:rgb(90, 75, 56);
+    }
+
+    #Picture
+    {
+        width:35%;
+        min-height: 400px;
+        padding-top:px;
+        /* background-color: lightgray;*/
+        float:right;
+    }
+    #Picture img
+    {
+        width: 200px;
+        height: 260px;
+    }
+    .contact
+    {
+        margin-bottom: 10px;
+    }
+    #Uni
+    {
+        font-family: sans-serif;
+        font-weight: bold;
+        font-size: 15px;
+        line-height: 3; 
+    }
+    #name
+    {
+        line-height: 1;
+        font-size: 40px;
+    }
+    #contact1
+    {
+        font-family: sans-serif;
+        font-weight: bold;
+        font-size: 15px;
+    }
+}
