@@ -63,13 +63,13 @@
     .img {
         margin : 5%;
         padding: 0%;
-        margin-left: 10%;
+        margin-left: 5%;
         position: relative;
     
     }
     .niname {
         margin-top: 15%;
-        margin-left: 50%;
+        margin-left: 55%;
         padding: 0%;
         position: absolute;
     }
@@ -95,7 +95,7 @@
         line-height: 100%;
         font-size: 10px;
         position: absolute;
-        margin-top: 30%;
+        margin-top: 40%;
         margin-left: 45%;
     }
     #main-div
