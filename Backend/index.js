@@ -52,6 +52,8 @@ app.post('/record', (req, res) => {
       first_name: data.first_name,
       last_name: data.last_name,
       student_id: data.student_id,
+      group: data.group,
+    numgroup: data.numgroup,
       email: data.email,
       title: data.title,
       type_of_work_id: data.type_of_work_id,
