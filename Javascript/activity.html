@@ -96,12 +96,14 @@
 
       <!-- Start Date/Time Field -->
       <div class="form-group">
+        <!--<button onclick="this.innerHTML=Date()" id="startDate">Start Date / Time is?</button>-->
         <label for="startDate">Start Date/Time</label>
         <input type="datetime-local" id="startDate" name="startDate" />
       </div>
 
       <!-- End Date/Time Field -->
       <div class="form-group">
+        <!--<button onclick="this.innerHTML=Date()" id="endDate">End Date / Time is?</button>-->
         <label for="endDate">End Date/Time</label>
         <input type="datetime-local" id="endDate" name="endDate" />
       </div>
@@ -120,7 +122,7 @@
 
       <!-- Submit Button -->
       <div class="form-group">
-        <input type="submit" value="Submit" />
+        <input type="submit" value="Submit" onfocus="myFunction(this)"/>
       </div>
     </form>
   </div>
