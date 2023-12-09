@@ -5,6 +5,9 @@
   Copyright: CSTU
   Description: JS code of CSTU Passport that validate with JS
 */
+function myFunction(x) {
+  x.style.background = "green";
+}
 
 const config = {
   // backendUrl: "http://54.179.42.49/", // Default backend URL
@@ -238,16 +241,24 @@ async function submitForm(event) {
     console.error("An error occurred while submitting form data:", error);
   }
 }
-
+document.addEventListener("submit", (e) => {
+  e.preventDefault();
+  
+  validateName();
+  validateEmail();
+  validateStudentID();
+  validateGroupID();
+});
 // Event listener for form submission
 document.getElementById("myForm").addEventListener("submit", submitForm);
 
 // Event listeners for input validation on user input
-document.getElementById("fullname").addEventListener("input", validateName);
+/*document.getElementById("fullname").addEventListener("input", validateName);
 document
   .getElementById("studentID")
   .addEventListener("input", validateStudentID);
 document
   .getElementById("GroupID")
   .addEventListener("input", validateGroupID);
-document.getElementById("email").addEventListener("input", validateEmail);
+document.getElementById("email").addEventListener("input", validateEmail);*/
+
