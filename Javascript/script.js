@@ -42,6 +42,69 @@ function validateStudentID() {
   return true;
 }
 
+// Function to validate Group ID
+function validateGroupID() {
+  const GroupIDInput = document.getElementById("GroupID");
+  const size = GroupIDInput.value.trim().split(" ");
+  const errorElement = document.getElementById("GroupIDError");
+
+  if (size.length !== 2) {
+
+    errorElement.textContent = "Please enter your GroupID such as G 03.";
+    return false;
+
+  }else if(size[0] !== 'G'){
+
+    errorElement.textContent = "Please enter the first letter as G.";
+    return false;
+
+  }else if(size[1] > 62){
+
+    errorElement.textContent = "Please enter your Group number.";
+    return false;
+    
+  }else {
+    errorElement.textContent = "";
+    // Clear the error message when valid
+  }
+  return true;
+/* const GroupIDInput = document.getElementById("GroupID");
+  let GroupIDInputArr = []; // Daclare array for collect data
+  const size = GroupIDInputArr.length;
+  for(let i =0 ; i<2 ; i++){
+
+    GroupIDInputArr.push(GroupIDInput.charAt(i));
+
+  } 
+
+  console.log('GroupIDInputArr:', GroupIDInputArr);
+
+  if(size !== 2){
+      errorElement.textContent = "Please enter your GroupID such as G03.";
+      return false;
+  } else {
+      errorElement.textContent = ""; // Clear the error message when valid
+  }
+ //Check the format of the input data to see if it matches the format or not. 
+  if(GroupIDInputArr[0] !== 'G'){
+
+      errorElement.textContent = "Please enter your GroupID such as G03.";
+      return false;
+
+  } else {
+      errorElement.textContent = ""; // Clear the error message when valid
+ }
+ if(GroupIDInputArr[1] < '0' || GroupIDInputArr[1] > '62'){
+
+  errorElement.textContent = "Please enter your GroupID such as G03.";
+  return false;
+
+} else {
+
+  errorElement.textContent = ""; // Clear the error message when valid
+}*/
+}
+
 // Function to validate University Email
 function validateEmail() {
   const emailInput = document.getElementById("email");
@@ -63,6 +126,7 @@ function validateFormOnInput() {
   validateName();
   validateStudentID();
   validateEmail();
+  validateGroupID();
 }
 
 // Function to fetch activity types from the backend
@@ -106,7 +170,7 @@ async function submitForm(event) {
   event.preventDefault();
 
   // Validate form inputs before submission
-  if (!validateName() || !validateStudentID() || !validateEmail()) {
+  if (!validateName() || !validateStudentID() || !validateEmail() || !validateGroupID()) {
     return;
   }
 
@@ -127,6 +191,8 @@ async function submitForm(event) {
     last_name: formData.get("fullname").split(" ")[1],
     student_id: parseInt(formData.get("studentID")),
     email: formData.get("email"),
+    group: formData.get("GroupID").split(" ")[0],
+    numgroup: formData.get("GroupID").split(" ")[1],
     title: formData.get("workTitle"),
     type_of_work_id: parseInt(formData.get("activityType")),
     academic_year: parseInt(formData.get("academicYear")) - 543,
@@ -181,4 +247,7 @@ document.getElementById("fullname").addEventListener("input", validateName);
 document
   .getElementById("studentID")
   .addEventListener("input", validateStudentID);
+document
+  .getElementById("GroupID")
+  .addEventListener("input", validateGroupID);
 document.getElementById("email").addEventListener("input", validateEmail);
