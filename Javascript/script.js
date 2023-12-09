@@ -5,15 +5,22 @@
   Copyright: CSTU
   Description: JS code of CSTU Passport that validate with JS
 */
-function myFunction(x) {
-  x.style.background = "green";
-}
+
 
 const config = {
   // backendUrl: "http://54.179.42.49/", // Default backend URL
   // backendUrl: "https://d1npkyc4r380kx.cloudfront.net/", // Default backend URL
-  backendUrl: "https://d1a6370uhsfk5w.cloudfront.net/", // Default backend URL
+  //backendUrl: "https://d1a6370uhsfk5w.cloudfront.net/", // Default backend URL
+
+    backendUrl: "http://localhost:8000/", // Default backend URL
+
 };
+
+const port = 8000;
+
+function myFunction(x) {
+  x.style.background = "green";
+}
 
 // Function to validate Firstname and Lastname
 function validateName() {
@@ -135,7 +142,7 @@ function validateFormOnInput() {
 // Function to fetch activity types from the backend
 async function fetchActivityTypes() {
   try {
-    const response = await fetch(config.backendUrl + "getActivityType");
+    const response = await fetch(`http://${window.location.hostname}:${port}/getActivityType`);
     if (response.ok) {
       const data = await response.json();
       return data;
@@ -210,6 +217,39 @@ async function submitForm(event) {
 
   try {
     // Send data to the backend using POST request
+    const response = await fetch(`http://${window.location.hostname}:${port}/record`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data),
+    });
+
+    if (response.ok) {
+      const responseData = await response.json();
+      console.log("Form data submitted successfully!");
+
+      // Format JSON data for display
+      const formattedData = Object.entries(responseData.data)
+        .map(([key, value]) => `"${key}": "${value}"`)
+        .join("\n");
+
+      // Display success message with formatted data
+      alert(responseData.message + '\n' + formattedData);
+
+      document.getElementById("myForm").reset();
+    } else {
+      console.error("Failed to submit form data.");
+
+      // Display error message
+      alert("Failed to submit form data. Please try again.");
+    }
+  } catch (error) {
+    console.error("An error occurred while submitting form data:", error);
+  }
+}
+  /*try {
+    // Send data to the backend using POST request
     const response = await fetch(config.backendUrl + "record", {
       method: "POST",
       headers: {
@@ -240,7 +280,7 @@ async function submitForm(event) {
   } catch (error) {
     console.error("An error occurred while submitting form data:", error);
   }
-}
+}*/
 document.addEventListener("submit", (e) => {
   e.preventDefault();
   
