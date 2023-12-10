@@ -55,7 +55,7 @@ app.post('/record', (req, res) => {
       group: data.group,
     numgroup: data.numgroup,
       email: data.email,
-      title: data.title,
+      Sex: data.sex,
       type_of_work_id: data.type_of_work_id,
       academic_year: data.academic_year,
       semester: data.semester,
