@@ -139,6 +139,7 @@ function validateFormOnInput() {
   validateGroupID();
 }
 
+
 // Function to fetch activity types from the backend
 async function fetchActivityTypes() {
   try {
@@ -172,6 +173,15 @@ function populateActivityTypes(activityTypes) {
 document.addEventListener("DOMContentLoaded", async () => {
   const activityTypes = await fetchActivityTypes();
   populateActivityTypes(activityTypes);
+});
+
+document.addEventListener("submit", (e) => {
+  e.preventDefault();
+  
+  validateName();
+  validateEmail();
+  validateStudentID();
+  validateGroupID();
 });
 
 // Function to submit the form
@@ -317,14 +327,7 @@ document.body.insertBefore(detailsContainer);
     console.error("An error occurred while submitting form data:", error);
   }
 }*/
-document.addEventListener("submit", (e) => {
-  e.preventDefault();
-  
-  validateName();
-  validateEmail();
-  validateStudentID();
-  validateGroupID();
-});
+
 // Event listener for form submission
 document.getElementById("myForm").addEventListener("submit", submitForm);
 
