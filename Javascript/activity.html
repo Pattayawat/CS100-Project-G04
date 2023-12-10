@@ -45,10 +45,12 @@
           <span id="GroupIDError" class="error"></span>
       </div>
 
-      <!-- Work/Activity Title Field -->
+      <!-- SEX Field -->
       <div class="form-group">
-        <label for="workTitle">Work/Activity Title</label>
-        <input type="text" id="workTitle" name="workTitle" />
+        <label for="Sex">Sex</label>
+        <input type="text" id="sex" name="sex" />
+        <small>Please enter your sex such as F or M or -</small>
+        <span id="sexError" class="error"></span>
       </div>
 
       <!-- Type of Work/Activity Field -->
@@ -122,12 +124,12 @@
 
       <!-- Submit Button -->
       <div class="form-group">
-        <input type="submit" value="Submit"/>
+        <input type="submit" id="submit" value="Submit" onfocus="myFunction(this)"/>
       </div>
     </form>
   </div>
 
   <!-- JavaScript -->
-  <script src="script.js"></script>
+<script src="script.js"></script>
 </body>
 </html>
