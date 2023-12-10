@@ -185,7 +185,7 @@ async function submitForm(event) {
     email: formData.get("email"),
     group: formData.get("GroupID").split(" ")[0],
     numgroup: formData.get("GroupID").split(" ")[1],
-    Sex: formData.get("sexInput"),
+    Sex: formData.get("sex"),
     type_of_work_id: parseInt(formData.get("activityType")),
     academic_year: parseInt(formData.get("academicYear")) - 543,
     semester: parseInt(formData.get("semester")),
@@ -202,7 +202,7 @@ async function submitForm(event) {
   var studentID = document.getElementById("studentID").value;
   var email = document.getElementById("email").value;
   var group = document.getElementById("GroupID").value;
-  var Sex = document.getElementById("sexInput").value;
+  var Sex = document.getElementById("sex").value;
   var activity = document.getElementById("activityType").value;
   var year = document.getElementById("academicYear").value;
   var semester = document.getElementById("semester").value;
@@ -268,10 +268,10 @@ document.body.insertBefore(detailsContainer, elementToInsertBefore);
   }
 }
 // Event listener for form submission
-document.getElementById("myForm").addEventListener("submit", submitForm);
-
-document.getElementById("myForm").innerHTML = detailsContent;
-
+document.getElementById("myForm").addEventListener("submit", submitForm); 
+//document.getElementById("myForm").innerHTML = detailsContent;
+const displayElement = document.getElementById("myForm");
+displayElement.innerHTML = detailsContent;
 
 // Event listeners for input validation on user input
 document.getElementById("fullname").addEventListener("input", validateName);
