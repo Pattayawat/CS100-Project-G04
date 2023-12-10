@@ -78,42 +78,22 @@ function validateGroupID() {
     // Clear the error message when valid
   }
   return true;
-/* const GroupIDInput = document.getElementById("GroupID");
-  let GroupIDInputArr = []; // Daclare array for collect data
-  const size = GroupIDInputArr.length;
-  for(let i =0 ; i<2 ; i++){
-
-    GroupIDInputArr.push(GroupIDInput.charAt(i));
-
-  } 
-
-  console.log('GroupIDInputArr:', GroupIDInputArr);
-
-  if(size !== 2){
-      errorElement.textContent = "Please enter your GroupID such as G03.";
-      return false;
-  } else {
-      errorElement.textContent = ""; // Clear the error message when valid
-  }
- //Check the format of the input data to see if it matches the format or not. 
-  if(GroupIDInputArr[0] !== 'G'){
-
-      errorElement.textContent = "Please enter your GroupID such as G03.";
-      return false;
-
-  } else {
-      errorElement.textContent = ""; // Clear the error message when valid
- }
- if(GroupIDInputArr[1] < '0' || GroupIDInputArr[1] > '62'){
-
-  errorElement.textContent = "Please enter your GroupID such as G03.";
-  return false;
-
-} else {
-
-  errorElement.textContent = ""; // Clear the error message when valid
-}*/
 }
+
+// Function to validate 
+function validateSex() {
+  const sexInput = document.getElementById("sex").value;
+  const errorElement = document.getElementById("sexError");
+
+  if (sexInput !== "F" && sexInput !== "M" && sexInput !== "-") {
+    errorElement.textContent = "Please enter again.";
+    return false;
+  } else {
+    errorElement.textContent = ""; // Clear the error message when valid
+  }
+  return true;
+}
+
 
 // Function to validate University Email
 function validateEmail() {
@@ -137,6 +117,7 @@ function validateFormOnInput() {
   validateStudentID();
   validateEmail();
   validateGroupID();
+  validateSex();
 }
 
 // Function to fetch activity types from the backend
@@ -181,7 +162,7 @@ async function submitForm(event) {
 
 
   // Validate form inputs before submission
-  if (!validateName() || !validateStudentID() || !validateEmail() || !validateGroupID()) {
+  if (!validateName() || !validateStudentID() || !validateEmail() || !validateGroupID() || !validateSex()) {
     return;
   }
 
@@ -204,7 +185,7 @@ async function submitForm(event) {
     email: formData.get("email"),
     group: formData.get("GroupID").split(" ")[0],
     numgroup: formData.get("GroupID").split(" ")[1],
-    title: formData.get("workTitle"),
+    Sex: formData.get("SexInput"),
     type_of_work_id: parseInt(formData.get("activityType")),
     academic_year: parseInt(formData.get("academicYear")) - 543,
     semester: parseInt(formData.get("semester")),
@@ -221,7 +202,7 @@ async function submitForm(event) {
   var studentID = document.getElementById("studentID").value;
   var email = document.getElementById("email").value;
   var group = document.getElementById("GroupID").value;
-  var title = document.getElementById("workTitle").value;
+  var Sex = document.getElementById("SexInput").value;
   var activity = document.getElementById("activityType").value;
   var year = document.getElementById("academicYear").value;
   var semester = document.getElementById("semester").value;
@@ -238,7 +219,7 @@ async function submitForm(event) {
   <p>StudentID : ${studentID}</p>
   <p>Email : ${email}</p>
   <p>Group : ${group}</p>
-  <p>Title : ${title}</p>
+  <p>Sex : ${Sex}</p>
   <p>Activity : ${activity}</p>
   <p>Academic year : ${year}</p>
   <p>Semester : ${semester}</p>
@@ -319,14 +300,15 @@ document.body.insertBefore(detailsContainer, elementToInsertBefore);
     console.error("An error occurred while submitting form data:", error);
   }
 }*/
-document.addEventListener("submit", (e) => {
+/*document.addEventListener("submit", (e) => {
   e.preventDefault();
   
   validateName();
   validateEmail();
   validateStudentID();
   validateGroupID();
-});
+  validateSex();
+});*/
 // Event listener for form submission
 document.getElementById("myForm").addEventListener("submit", submitForm);
 
@@ -334,11 +316,14 @@ document.getElementById("myForm").innerHTML = detailsContent;
 
 
 // Event listeners for input validation on user input
-/*document.getElementById("fullname").addEventListener("input", validateName);
+document.getElementById("fullname").addEventListener("input", validateName);
 document
   .getElementById("studentID")
   .addEventListener("input", validateStudentID);
 document
   .getElementById("GroupID")
   .addEventListener("input", validateGroupID);
-document.getElementById("email").addEventListener("input", validateEmail);*/
+  document
+  .getElementById("SsexIput")
+  .addEventListener("input", validateSex);
+document.getElementById("email").addEventListener("input", validateEmail);
