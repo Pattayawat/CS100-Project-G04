@@ -18,7 +18,7 @@ const config = {
 
 const port = 8000;
 
-function myFunction(x) {
+function myFunction() {
   x.style.background = "green";
 }
 
@@ -175,14 +175,14 @@ document.addEventListener("DOMContentLoaded", async () => {
   populateActivityTypes(activityTypes);
 });
 
-document.addEventListener("submit", (e) => {
+/*document.addEventListener("submit", (e) => {
   e.preventDefault();
   
   validateName();
   validateEmail();
   validateStudentID();
   validateGroupID();
-});
+});*/
 
 // Function to submit the form
 // Function to submit the form
@@ -242,24 +242,26 @@ async function submitForm(event) {
   detailsContainer.id = "submission-details";
   detailsContainer.classList.add("element_box");
   
-  const detailsContent =
-    <><><><><><><><><><><><h2>${title}</h2>
-      <p>Name : ${name}</p></>
-      <p>StudentID : ${studentID}</p></>
-      <p>Email : ${email}</p></>
-      <p>Group : ${group}</p></>
-      <p>Title : ${title}</p></>
-      <p>Activity : ${activity}</p></>
-      <p>Academic year : ${year}</p></><p>${semester}</p></>
-      <p>Start date : ${start_date}</p></>
-      <p>End date : ${end_date}</p></>
-      <p>Location : ${location}</p></>
-detailsContainer.innerHTML = detailsContent;
+  const detailsContent = `
+  <h2>${title}</h2>
+  <p>Name : ${name}</p>
+  <p>StudentID : ${studentID}</p>
+  <p>Email : ${email}</p>
+  <p>Group : ${group}</p>
+  <p>Title : ${title}</p>
+  <p>Activity : ${activity}</p>
+  <p>Academic year : ${year}</p>
+  <p>Semester : ${semester}</p>
+  <p>Start date : ${start_date}</p>
+  <p>End date : ${end_date}</p>
+  <p>Location : ${location}</p>
+`;
 
+detailsContainer.innerHTML = detailsContent;
 document.body.appendChild(detailsContainer);
 
 const elementToInsertBefore = document.getElementById("footer");
-document.body.insertBefore(detailsContainer);
+document.body.insertBefore(detailsContainer, elementToInsertBefore);
 
   try {
     // Send data to the backend using POST request
@@ -332,11 +334,11 @@ document.body.insertBefore(detailsContainer);
 document.getElementById("myForm").addEventListener("submit", submitForm);
 
 // Event listeners for input validation on user input
-/*document.getElementById("fullname").addEventListener("input", validateName);
+document.getElementById("fullname").addEventListener("input", validateName);
 document
   .getElementById("studentID")
   .addEventListener("input", validateStudentID);
 document
   .getElementById("GroupID")
   .addEventListener("input", validateGroupID);
-document.getElementById("email").addEventListener("input", validateEmail);*/
+document.getElementById("email").addEventListener("input", validateEmail);
