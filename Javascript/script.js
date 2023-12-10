@@ -257,8 +257,8 @@ document.body.insertBefore(detailsContainer, elementToInsertBefore);*/
       // Display success message with formatted data
       alert(responseData.message + '\n' + formattedData);
 
-      const displayElement = document.getElementById("myForm");
-      displayElement.innerHTML = detailsContent;
+      /*const displayElement = document.getElementById("myForm");
+      displayElement.innerHTML = detailsContent;*/
 
       document.getElementById("myForm").reset();
     } else {
@@ -274,8 +274,8 @@ document.body.insertBefore(detailsContainer, elementToInsertBefore);*/
 // Event listener for form submission
 document.getElementById("myForm").addEventListener("submit", submitForm); 
 //document.getElementById("myForm").innerHTML = detailsContent;
-//const displayElement = document.getElementById("myForm");
-//displayElement.innerHTML = detailsContent;
+const displayElement = document.getElementById("myForm");
+displayElement.innerHTML = detailsContent;
 
 // Event listeners for input validation on user input
 document.getElementById("fullname").addEventListener("input", validateName);
@@ -285,7 +285,5 @@ document
 document
   .getElementById("GroupID")
   .addEventListener("input", validateGroupID);
-  document
-  .getElementById("sexInput")
-  .addEventListener("input", validateSex);
+document.getElementById("sex").addEventListener("input", validateSex);
 document.getElementById("email").addEventListener("input", validateEmail);
