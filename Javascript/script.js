@@ -185,7 +185,7 @@ async function submitForm(event) {
     email: formData.get("email"),
     group: formData.get("GroupID").split(" ")[0],
     numgroup: formData.get("GroupID").split(" ")[1],
-    Sex: formData.get("SexInput"),
+    Sex: formData.get("sexInput"),
     type_of_work_id: parseInt(formData.get("activityType")),
     academic_year: parseInt(formData.get("academicYear")) - 543,
     semester: parseInt(formData.get("semester")),
@@ -202,7 +202,7 @@ async function submitForm(event) {
   var studentID = document.getElementById("studentID").value;
   var email = document.getElementById("email").value;
   var group = document.getElementById("GroupID").value;
-  var Sex = document.getElementById("SexInput").value;
+  var Sex = document.getElementById("sexInput").value;
   var activity = document.getElementById("activityType").value;
   var year = document.getElementById("academicYear").value;
   var semester = document.getElementById("semester").value;
@@ -214,7 +214,6 @@ async function submitForm(event) {
   detailsContainer.classList.add("element_box");
   
   const detailsContent = `
-  <h2>${title}</h2>
   <p>Name : ${name}</p>
   <p>StudentID : ${studentID}</p>
   <p>Email : ${email}</p>
@@ -227,6 +226,7 @@ async function submitForm(event) {
   <p>End date : ${end_date}</p>
   <p>Location : ${location}</p>
 `;
+///<h2> : ${title} </h2>
 
 detailsContainer.innerHTML = detailsContent;
 document.body.appendChild(detailsContainer);
@@ -267,48 +267,6 @@ document.body.insertBefore(detailsContainer, elementToInsertBefore);
     console.error("An error occurred while submitting form data:", error);
   }
 }
-  /*try {
-    // Send data to the backend using POST request
-    const response = await fetch(config.backendUrl + "record", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(data),
-    });
-
-    if (response.ok) {
-      const responseData = await response.json();
-      console.log("Form data submitted successfully!");
-
-      // Format JSON data for display
-      const formattedData = Object.entries(responseData.data)
-        .map(([key, value]) => `"${key}": "${value}"`)
-        .join("\n");
-
-      // Display success message with formatted data
-      alert(responseData.message + "\n" + formattedData);
-
-      document.getElementById("myForm").reset();
-    } else {
-      console.error("Failed to submit form data.");
-
-      // Display error message
-      alert("Failed to submit form data. Please try again.");
-    }
-  } catch (error) {
-    console.error("An error occurred while submitting form data:", error);
-  }
-}*/
-/*document.addEventListener("submit", (e) => {
-  e.preventDefault();
-  
-  validateName();
-  validateEmail();
-  validateStudentID();
-  validateGroupID();
-  validateSex();
-});*/
 // Event listener for form submission
 document.getElementById("myForm").addEventListener("submit", submitForm);
 
@@ -324,6 +282,6 @@ document
   .getElementById("GroupID")
   .addEventListener("input", validateGroupID);
   document
-  .getElementById("SsexIput")
+  .getElementById("sexInput")
   .addEventListener("input", validateSex);
 document.getElementById("email").addEventListener("input", validateEmail);
