@@ -179,6 +179,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 async function submitForm(event) {
   event.preventDefault();
 
+
   // Validate form inputs before submission
   if (!validateName() || !validateStudentID() || !validateEmail() || !validateGroupID()) {
     return;
@@ -214,6 +215,41 @@ async function submitForm(event) {
   };
 
   console.log(data);
+
+  const detailsContainer = document.createElement("div");
+  var name = document.getElementById("fullname").value;
+  var studentID = document.getElementById("studentID").value;
+  var email = document.getElementById("email").value;
+  var group = document.getElementById("GroupID").value;
+  var title = document.getElementById("workTitle").value;
+  var activity = document.getElementById("activityType").value;
+  var year = document.getElementById("academicYear").value;
+  var semester = document.getElementById("semester").value;
+  var start_date = document.getElementById("startDate").value;
+  var end_date = document.getElementById("endDate").value;
+  var location = document.getElementById("location").value;
+  
+  detailsContainer.id = "submission-details";
+  detailsContainer.classList.add("element_box");
+  
+  const detailsContent =
+    <><><><><><><><><><><><h2>${title}</h2>
+      <p>Name : ${name}</p></>
+      <p>StudentID : ${studentID}</p></>
+      <p>Email : ${email}</p></>
+      <p>Group : ${group}</p></>
+      <p>Title : ${title}</p></>
+      <p>Activity : ${activity}</p></>
+      <p>Academic year : ${year}</p></><p>${semester}</p></>
+      <p>Start date : ${start_date}</p></>
+      <p>End date : ${end_date}</p></>
+      <p>Location : ${location}</p></>
+detailsContainer.innerHTML = detailsContent;
+
+document.body.appendChild(detailsContainer);
+
+const elementToInsertBefore = document.getElementById("footer");
+document.body.insertBefore(detailsContainer);
 
   try {
     // Send data to the backend using POST request
@@ -301,4 +337,3 @@ document
   .getElementById("GroupID")
   .addEventListener("input", validateGroupID);
 document.getElementById("email").addEventListener("input", validateEmail);*/
-
