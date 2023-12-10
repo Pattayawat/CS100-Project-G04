@@ -18,7 +18,7 @@ const config = {
 
 const port = 8000;
 
-function myFunction() {
+function myFunction(x) {
   x.style.background = "green";
 }
 
@@ -139,7 +139,6 @@ function validateFormOnInput() {
   validateGroupID();
 }
 
-
 // Function to fetch activity types from the backend
 async function fetchActivityTypes() {
   try {
@@ -174,15 +173,6 @@ document.addEventListener("DOMContentLoaded", async () => {
   const activityTypes = await fetchActivityTypes();
   populateActivityTypes(activityTypes);
 });
-
-/*document.addEventListener("submit", (e) => {
-  e.preventDefault();
-  
-  validateName();
-  validateEmail();
-  validateStudentID();
-  validateGroupID();
-});*/
 
 // Function to submit the form
 // Function to submit the form
@@ -238,7 +228,7 @@ async function submitForm(event) {
   var start_date = document.getElementById("startDate").value;
   var end_date = document.getElementById("endDate").value;
   var location = document.getElementById("location").value;
-  
+
   detailsContainer.id = "submission-details";
   detailsContainer.classList.add("element_box");
   
@@ -329,16 +319,26 @@ document.body.insertBefore(detailsContainer, elementToInsertBefore);
     console.error("An error occurred while submitting form data:", error);
   }
 }*/
-
+document.addEventListener("submit", (e) => {
+  e.preventDefault();
+  
+  validateName();
+  validateEmail();
+  validateStudentID();
+  validateGroupID();
+});
 // Event listener for form submission
 document.getElementById("myForm").addEventListener("submit", submitForm);
 
+document.getElementById("myForm").innerHTML = detailsContent;
+
+
 // Event listeners for input validation on user input
-document.getElementById("fullname").addEventListener("input", validateName);
+/*document.getElementById("fullname").addEventListener("input", validateName);
 document
   .getElementById("studentID")
   .addEventListener("input", validateStudentID);
 document
   .getElementById("GroupID")
   .addEventListener("input", validateGroupID);
-document.getElementById("email").addEventListener("input", validateEmail);
+document.getElementById("email").addEventListener("input", validateEmail);*/
