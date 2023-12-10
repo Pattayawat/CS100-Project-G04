@@ -228,11 +228,12 @@ async function submitForm(event) {
 `;
 ///<h2> : ${title} </h2>
 
-detailsContainer.innerHTML = detailsContent;
+
+/*detailsContainer.innerHTML = detailsContent;
 document.body.appendChild(detailsContainer);
 
 const elementToInsertBefore = document.getElementById("footer");
-document.body.insertBefore(detailsContainer, elementToInsertBefore);
+document.body.insertBefore(detailsContainer, elementToInsertBefore);*/
 
   try {
     // Send data to the backend using POST request
@@ -256,6 +257,9 @@ document.body.insertBefore(detailsContainer, elementToInsertBefore);
       // Display success message with formatted data
       alert(responseData.message + '\n' + formattedData);
 
+      const displayElement = document.getElementById("myForm");
+      displayElement.innerHTML = detailsContent;
+
       document.getElementById("myForm").reset();
     } else {
       console.error("Failed to submit form data.");
@@ -270,8 +274,8 @@ document.body.insertBefore(detailsContainer, elementToInsertBefore);
 // Event listener for form submission
 document.getElementById("myForm").addEventListener("submit", submitForm); 
 //document.getElementById("myForm").innerHTML = detailsContent;
-const displayElement = document.getElementById("myForm");
-displayElement.innerHTML = detailsContent;
+//const displayElement = document.getElementById("myForm");
+//displayElement.innerHTML = detailsContent;
 
 // Event listeners for input validation on user input
 document.getElementById("fullname").addEventListener("input", validateName);
