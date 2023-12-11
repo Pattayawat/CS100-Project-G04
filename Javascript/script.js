@@ -229,11 +229,11 @@ async function submitForm(event) {
 ///<h2> : ${title} </h2>
 
 
-/*detailsContainer.innerHTML = detailsContent;
+detailsContainer.innerHTML = detailsContent;
 document.body.appendChild(detailsContainer);
 
 const elementToInsertBefore = document.getElementById("footer");
-document.body.insertBefore(detailsContainer, elementToInsertBefore);*/
+document.body.insertBefore(detailsContainer, elementToInsertBefore);
 
   try {
     // Send data to the backend using POST request
@@ -271,14 +271,26 @@ document.body.insertBefore(detailsContainer, elementToInsertBefore);*/
     console.error("An error occurred while submitting form data:", error);
   }
 }
+
+document.addEventListener("submit", (e) => {
+  e.preventDefault();
+  
+  validateName();
+  validateEmail();
+  validateStudentID();
+  validateGroupID();
+  validateSex();
+});
+
 // Event listener for form submission
 document.getElementById("myForm").addEventListener("submit", submitForm); 
+document.getElementById("myForm").innerHTML = detailsContent;
 //document.getElementById("myForm").innerHTML = detailsContent;
 //const displayElement = document.getElementById("myForm");
 //displayElement.innerHTML = detailsContent;
 
 // Event listeners for input validation on user input
-document.getElementById("fullname").addEventListener("input", validateName);
+/*document.getElementById("fullname").addEventListener("input", validateName);
 document
   .getElementById("studentID")
   .addEventListener("input", validateStudentID);
@@ -286,4 +298,4 @@ document
   .getElementById("GroupID")
   .addEventListener("input", validateGroupID);
 document.getElementById("sex").addEventListener("input", validateSex);
-document.getElementById("email").addEventListener("input", validateEmail);
+document.getElementById("email").addEventListener("input", validateEmail);*/
